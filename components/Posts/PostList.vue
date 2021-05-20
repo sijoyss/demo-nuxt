@@ -1,31 +1,20 @@
 <template>
   <section class="post-list">
     <PostPreview
-      id="1"
-      :isAdmin="isAdmin"
-      thumbnail="https://res-3.cloudinary.com/fieldfisher/image/upload/c_lfill,g_auto/f_auto,q_auto/v1/sectors/technology/tech_neoncircuitboard_857021704_medium_lc5h05"
-      title="Hi!"
-      previewText="First Post"
-    />
-    <PostPreview
-      id="2"
-      :isAdmin="isAdmin"
-      thumbnail="https://res-3.cloudinary.com/fieldfisher/image/upload/c_lfill,g_auto/f_auto,q_auto/v1/sectors/technology/tech_neoncircuitboard_857021704_medium_lc5h05"
-      title="Hi!"
-      previewText="Second Post"
-    />
-    <PostPreview
-      id="3"
-      :isAdmin="isAdmin"
-      thumbnail="https://res-3.cloudinary.com/fieldfisher/image/upload/c_lfill,g_auto/f_auto,q_auto/v1/sectors/technology/tech_neoncircuitboard_857021704_medium_lc5h05"
-      title="Hi!"
-      previewText="Third Post"
+      v-for="post in posts"
+      :key="post.id"
+      :id="post.id"
+      :is-admin="isAdmin"
+      :thumbnail="post.thumbnail"
+      :title="post.title"
+      :previewText="post.previewText"
     />
   </section>
 </template>
 
 <script>
 import PostPreview from "@/components/Posts/PostPreview";
+
 export default {
   components: {
     PostPreview
@@ -34,70 +23,16 @@ export default {
     isAdmin: {
       type: Boolean,
       default: false
+    },
+    posts: {
+      type: Array,
+      required: true
     }
   }
 };
 </script>
 
-<style>
-.posts-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.single-post-page {
-  padding: 30px;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.post {
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .post {
-    width: 600px;
-    margin: auto;
-  }
-}
-
-.post-title {
-  margin: 0;
-}
-
-.post-details {
-  padding: 10px;
-  box-sizing: border-box;
-  border-bottom: 3px solid #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-@media (min-width: 768px) {
-  .post-details {
-    flex-direction: row;
-  }
-}
-
-.post-detail {
-  color: rgb(88, 88, 88);
-  margin: 0 10px;
-}
-
-.post-feedback a {
-  color: red;
-  text-decoration: none;
-}
-
-.post-feedback a:hover,
-.post-feedback a:active {
-  color: salmon;
-}
-
+<style scoped>
 .post-list {
   display: flex;
   padding: 20px;

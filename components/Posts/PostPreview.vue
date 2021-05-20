@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="'postLink'" class="post-preview">
+  <nuxt-link :to="postLink" class="post-preview">
     <article>
       <div
         class="post-thumbnail"
@@ -46,7 +46,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .post-preview {
   border: 1px solid #ccc;
   box-shadow: 0 2px 2px #ccc;

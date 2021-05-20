@@ -1,30 +1,41 @@
 <template>
-  <div class="home">
+  <div class="home-page">
     <section class="intro">
-      <h1>Latest Tech News</h1>
+      <h1>Get the latest tech news!</h1>
     </section>
-    <PostList />
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
 <script>
 import PostList from "@/components/Posts/PostList";
+
 export default {
   components: {
     PostList
+  },
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts;
+    }
   }
+  // data() {
+  //   return {
+  //     loadedPosts: []
+  //   };
+  // },
 };
 </script>
 
-<style>
+<style scoped>
 .intro {
   height: 300px;
   position: relative;
   padding: 30px;
   box-sizing: border-box;
+  background-image: url("~assets/images/Lega-Tech-Artificial-Intelligence.jpg");
   background-position: center;
   background-size: cover;
-  background-image: url("~assets/images/Lega-Tech-Artificial-Intelligence.jpg");
 }
 
 .intro h1 {
