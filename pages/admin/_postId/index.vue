@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       loadedPost: {
-        author: "Maximilian",
+        author: "Sijoy",
         title: "My awesome Post",
         content: "Super amazing, thanks for that!",
         thumbnailLink:
