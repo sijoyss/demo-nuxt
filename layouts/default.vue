@@ -2,14 +2,14 @@
   <div>
     <Header @sidenavToggle="displaySidenav = !displaySidenav" />
     <Sidenav :show="displaySidenav" @close="displaySidenav = false" />
-    <!--closing nav-->
     <nuxt />
   </div>
 </template>
 
 <script>
-import Header from "../components/Navigation/Header";
-import Sidenav from "../components/Navigation/Sidenav";
+import Header from "@/components/Navigation/Header";
+import Sidenav from "@/components/Navigation/Sidenav";
+
 export default {
   components: {
     Header,
@@ -23,4 +23,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+html {
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+</style>

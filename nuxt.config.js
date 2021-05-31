@@ -26,7 +26,11 @@ export default {
   buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ["@nuxtjs/axios"],
+  axios: {
+    baseURL:
+      process.env.BASE_URL || "https://nuxtmine-default-rtdb.firebaseio.com/"
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
